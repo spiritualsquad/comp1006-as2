@@ -20,6 +20,9 @@
         </a>
         <nav class="navbar">
         <?php
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            } 
             include('shared/db.php');
             // set up query to fetch show data
             $sql = "SELECT * FROM pageInformation ORDER BY pageId";
@@ -31,12 +34,17 @@
             //Navigation menu
             foreach ($pages as $page){
                
-                echo'<a href="index.php?pageId='.$page['pageId'].'">'.ucfirst($page['pageName']).'</a>';
+                echo'<a href="index.php?pageId='.$page['pageId'].'">'.ucfirst($page['pageName']).'</a> ';
             }
             $db =null;
+            echo '<a href="login.php">Login</a>
+            <a href="register.php">Register</a>';
+            if (!empty($_SESSION['username'])) {
+                echo '
+                  <a class="navbar-link" href="adminSite.php">Control Panel</a>';
+                } 
+        
         ?>
-        <a href="login.php">Login</a>
-        <a href="register.php">Register</a>
         </nav>
         
         <!--List of links-->
