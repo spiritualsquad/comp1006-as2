@@ -16,7 +16,7 @@
 <body> 
     <header>
         <a href="index.html" class="logo">
-            <img src="logo.png" alt="">
+            <img src="img/logo.jpg" alt="">
         </a>
         <nav class="navbar">
         <?php
@@ -27,7 +27,7 @@
             if(!empty($_SESSION['username'])){
                 echo'<a href="admins.php">Administrators</a>
                 <a href="pages.php">Pages</a>
-                <a href="admins.php">Logo</a>
+                <a href="logo.php">Logo</a>
                 <a href="index.php">Public Site</a>
                 <a href="logout.php">Log Out</a>';
             }

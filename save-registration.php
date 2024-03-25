@@ -24,7 +24,7 @@ if($ok){
     include('shared/db.php');
 
     //duplicate user check
-    $sql ="SELECT * FROM users WHERE username =:username";
+    $sql ="SELECT * FROM user WHERE username =:username";
     $cmd =$db->prepare($sql);
     $cmd->bindParam(':username',$username, PDO::PARAM_STR,50);
     $cmd->execute();
@@ -35,7 +35,7 @@ if($ok){
         header('location:register.php?duplicate=true');
         exit();
     }
-    $sql ="INSERT INTO users(username,password) VALUES (:username,:password)";
+    $sql ="INSERT INTO user(username,password) VALUES (:username,:password)";
     $cmd = $db->prepare($sql);
     $cmd->bindParam(':username',$username,PDO::PARAM_STR,50);
     $cmd->bindParam(':password',$passwordHash,PDO::PARAM_STR,255);

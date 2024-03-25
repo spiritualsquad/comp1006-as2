@@ -6,7 +6,7 @@ $password =$_POST['password'];
 
 //connect
 include('shared/db.php');
-$sql ="SELECT * FROM users WHERE username =:username";
+$sql ="SELECT * FROM user WHERE username =:username";
 $cmd=$db->prepare($sql);
 $cmd->bindParam(':username',$username,PDO::PARAM_STR,50);
 $cmd->execute();
