@@ -18,11 +18,12 @@
         <a href="index.html" class="logo">
             <img src="img/logo.jpg" alt="">
         </a>
-        <nav class="navbar">
+        <nav>
         <?php
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
             } 
+        try {    
             include('shared/db.php');
             // set up query to fetch show data
             $sql = "SELECT * FROM pageInformation ORDER BY pageId";
@@ -37,15 +38,23 @@
                 echo'<a href="index.php?pageId='.$page['pageId'].'">'.ucfirst($page['pageName']).'</a> ';
             }
             $db =null;
-            echo '<a href="login.php">Login</a>
-            <a href="register.php">Register</a>';
+        }catch (Exception $error) {
+            
+            header('location:error.php');
+            exit();
+        }
+            echo '<a href="register.php">Register</a>';
+            //if logded in
             if (!empty($_SESSION['username'])) {
                 echo '
-                  <a class="navbar-link" href="adminSite.php">Control Panel</a>';
-                } 
+                  <a href="adminSite.php">Control Panel</a>';
+                } else{//if not logged in
+                    echo '
+                    <a href="login.php">Login</a>';
+                }
         
         ?>
         </nav>
         
-        <!--List of links-->
+        
     </header>

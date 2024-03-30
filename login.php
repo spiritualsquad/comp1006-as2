@@ -18,7 +18,7 @@ require 'shared/header.php';
       <label for="password">Password:</label>
       <input type="password" name="password" id="password" required />
     </fieldset>
-    <button class="offset-button">Login</button>
+    <button >Login</button>
   </form>
 </main>
 </body>

@@ -13,11 +13,11 @@ $content = null;
 
 // if showId is numeric, fetch show from db
 if (is_numeric($pageId)) {
-
+    try{
     // connect
     include('shared/db.php');
 
-    // run query & populate show properties for display
+    // run query & retrieve results
     $sql = "SELECT * FROM pageInformation WHERE pageId = :pageId";
     $cmd = $db->prepare($sql);
     $cmd->bindParam(':pageId', $pageId, PDO::PARAM_INT);
@@ -27,7 +27,12 @@ if (is_numeric($pageId)) {
   
     $pageName = $page['pageName'];
     $content = $page['content'];
-   
+    
+    $db = null;
+    }catch (Exception $error) {
+        header('location:error.php');
+        exit();
+    }
 }
 
 ?>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="common/style.css">
+    <link rel="stylesheet" href="shared/style.css">
     <title>
         <?php 
             //title changes as the file changes
@@ -15,7 +15,7 @@
 </head>
 <body> 
     <header>
-        <a href="index.html" class="logo">
+        <a href="index.php" class="logo">
             <img src="img/logo.jpg" alt="">
         </a>
         <nav class="navbar">
@@ -23,7 +23,7 @@
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
             } 
-            include('shared/db.php');
+            
             if(!empty($_SESSION['username'])){
                 echo'<a href="admins.php">Administrators</a>
                 <a href="pages.php">Pages</a>
@@ -34,5 +34,5 @@
         ?>
         </nav>
         
-        <!--List of links-->
+        
     </header>

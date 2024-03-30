@@ -22,27 +22,25 @@ if (empty($content)) {
 
 
 if ($validInput == true) {
-    // connect to db using the PDO (PHP Data Objects Library)
+    try{
+    // connect to db 
     include('shared/db.php');
 
-
+    //prepare select and run query
     $sql = "INSERT INTO pageInformation (pageName, content) 
     VALUES (:pageName, :content)";
-
-   
     $cmd = $db->prepare($sql);
-
-    // map each input to a column in the shows table
     $cmd->bindParam(':pageName', $pageName, PDO::PARAM_STR, 255);
     $cmd->bindParam(':content', $content, PDO::PARAM_STR, 255);
-    
-
-    // execute the INSERT (which saves to the db)
     $cmd->execute();
 
     // disconnect
     $db = null;
     header('location:pages.php');
+    }catch (Exception $error) {
+        header('location:error.php');
+        exit();
+    }
     
 } 
 ?>

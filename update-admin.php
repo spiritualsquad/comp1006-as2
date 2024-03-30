@@ -3,41 +3,31 @@
 $username = $_POST['username'];
 $password =$_POST['password'];
 $confirm =$_POST['confirm'];
-$ok = true;
+$validPassword = true;
 //validate inputs
 if(empty($username)){
     echo'Username is required<br/>';
-    $ok = false;
+    $validPassword = false;
 }
 if(strlen($password)<8){
     echo '8-Char Password is required<br /.';
-    $ok = false;
+   $validPassword = false;
 }
 if($password !=$confirm){
     echo 'Passwords must match<br/>';
-    $ok = false;
+   $validPassword = false;
 }
-if($ok){
+if($validPassword){
     // hash the password
     $passwordHash =password_hash($password,PASSWORD_DEFAULT);
     // connect to db check for username duplicate & insert new user
     include('shared/db.php');
 
-    //duplicate user check
-    $sql ="SELECT * FROM user WHERE username =:username";
-    $cmd =$db->prepare($sql);
-    $cmd->bindParam(':username',$username, PDO::PARAM_STR,16);
-    $cmd->execute();
-    $users =$cmd->fetchAll();
+    
 
-    if(!empty($users)){
-        $db=null;
-        header('location:register.php?duplicate=true');
-        exit();
-    }
-    $sql ="INSERT INTO user(username,password) VALUES (:username,:password)";
+    $sql ="UPDATE user SET username = :username, password = :password WHERE username = :username";
     $cmd = $db->prepare($sql);
-    $cmd->bindParam(':username',$username,PDO::PARAM_STR,50);
+    $cmd->bindParam(':username',$username,PDO::PARAM_STR,16);
     $cmd->bindParam(':password',$passwordHash,PDO::PARAM_STR,255);
     $cmd->execute();
     //disconnect
@@ -45,6 +35,6 @@ if($ok){
     //confirmation
     echo 'Saved';
     //redirect to login
-    header('location:login.php');
+    header('location:admins.php');
 }
 ?>

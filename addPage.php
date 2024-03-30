@@ -1,8 +1,9 @@
 <?php 
+//make this page password protected
 include('shared/auth.php');
 $title = 'Add Page';
 include('adminShared/header.php'); ?>
-
+<!-- lets the admin add page -->
 <h2>Add a New Page</h2>
 <form method="post" action="insert-page.php">
     <fieldset>
@@ -15,6 +16,5 @@ include('adminShared/header.php'); ?>
     </fieldset>
    <button>Submit</button>
 </form>
-</main>
 </body>
 </html>

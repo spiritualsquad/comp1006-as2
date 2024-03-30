@@ -4,20 +4,24 @@ include('shared/auth.php');
 $pageId = $_GET['pageId'];
 
 if (is_numeric($pageId)) {
-    // connect to db
-    include('shared/db.php');
+    try{
+        // connect to db
+        include('shared/db.php');
 
-    // prepare SQL DELETE
-    $sql = "DELETE FROM pageInformation WHERE pageId = :pageId";
-    $cmd = $db->prepare($sql);
-    $cmd->bindParam(':pageId', $pageId, PDO::PARAM_INT);
+        // prepare SQL DELETE
+        $sql = "DELETE FROM pageInformation WHERE pageId = :pageId";
+        $cmd = $db->prepare($sql);
+        $cmd->bindParam(':pageId', $pageId, PDO::PARAM_INT);
 
-    // execute the delete
-    $cmd->execute();
+        // execute the delete
+        $cmd->execute();
 
-    // disconnect
-    $db = null;
-
+        // disconnect
+        $db = null;
+    }catch (Exception $error) {
+        header('location:error.php');
+        exit();
+    }
 
     // redirect back to updated shows.php (eventually)
     header('location:pages.php');
