@@ -1,0 +1,30 @@
+header{
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    padding:1.5rem 7%;
+    border-bottom: orange;
+    position: fixed;
+    top:0; left: 0; right: 0;
+    z-index: 1000;
+}
+
+header img{
+    height: 6rem;
+    margin:0 1rem;
+    font-size: 1.6rem;
+    color:#fff;
+}
+
+header .navbar a{
+    margin:0 2rem;
+    font-size: 1.6rem;
+    color:#fff;
+}
+
+header .navbar a:hover{
+    color: blue;
+    border-bottom: .1rem solid var(--main-color);
+    padding-bottom: .5rem; 
+}

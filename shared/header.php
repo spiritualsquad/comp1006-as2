@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="common/style.css">
+    <link rel="stylesheet" href="shared/style.css">
     <title>
         <?php 
             //title changes as the file changes
@@ -15,10 +15,10 @@
 </head>
 <body> 
     <header>
-        <a href="index.html" class="logo">
+        <a href="index.php" class="logo">
             <img src="img/logo.jpg" alt="">
         </a>
-        <nav>
+        <nav class="navbar">
         <?php
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();

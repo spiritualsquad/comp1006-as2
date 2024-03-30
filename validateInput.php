@@ -3,7 +3,7 @@
 $username =$_POST['username'];
 $password =$_POST['password'];
 
-
+try{
 //connect
 include('shared/db.php');
 $sql ="SELECT * FROM user WHERE username =:username";
@@ -28,7 +28,11 @@ else{
     $db = null;
     header('location:index.php');
 }
-/// invalid = login valid =  shows.php
-//disconnect
 
+//disconnect
+$db = null;
+}catch(Exception $err){
+    header('location:error.php');
+    exit();
+}
 ?>

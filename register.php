@@ -25,14 +25,32 @@
         <label for="confirm">Confirm Password: *</label>
         <input type="password" name="confirm" id="confirm" required onkeyup="return comparePasswords();"
         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
-        <span id="pwErr"></span>
+        <br>
+        <span id="passwordError"></span>
 
     </fieldset>
 
     <button class="offset-button" onclick="comparePasswords();" >Register</button>
 
   </form>
+  <script>
+      //compare passwords
+      function comparePasswords() {
+        let password = document.getElementById('password').value;
+        let confirm = document.getElementById('confirm').value;
+        let passwordError = document.getElementById('passwordError');
 
-</main>
+        if (password != confirm) {
+          passwordError.innerText = 'Passwords do not match';
+          return false;
+        }
+        else {
+          passwordError.innerText = '';
+          return true;
+        }
+      }
+    </script>
+
+
 </body>
 </html>

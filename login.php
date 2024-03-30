@@ -20,6 +20,6 @@ require 'shared/header.php';
     </fieldset>
     <button >Login</button>
   </form>
-</main>
+
 </body>
 </html>

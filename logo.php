@@ -8,6 +8,6 @@ include('adminShared/header.php'); ?>
         <input type="file" id="photo" name="photo" accept="image/*" />
 </fieldset>
 <button type="submit">Submit</button>
-</main>
+
 </body>
 </html>

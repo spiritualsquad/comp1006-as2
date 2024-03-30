@@ -20,6 +20,7 @@ if($password !=$confirm){
 if($validPassword){
     // hash the password
     $passwordHash =password_hash($password,PASSWORD_DEFAULT);
+    try{
     // connect to db check for username duplicate & insert new user
     include('shared/db.php');
 
@@ -27,7 +28,7 @@ if($validPassword){
 
     $sql ="UPDATE user SET username = :username, password = :password WHERE username = :username";
     $cmd = $db->prepare($sql);
-    $cmd->bindParam(':username',$username,PDO::PARAM_STR,16);
+    $cmd->bindParam(':username',$username,PDO::PARAM_STR,32);
     $cmd->bindParam(':password',$passwordHash,PDO::PARAM_STR,255);
     $cmd->execute();
     //disconnect
@@ -36,5 +37,9 @@ if($validPassword){
     echo 'Saved';
     //redirect to login
     header('location:admins.php');
+    }catch(Exception $err){
+        header('location:error.php');
+        exit();
+    }
 }
 ?>

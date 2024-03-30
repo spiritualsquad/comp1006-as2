@@ -20,7 +20,8 @@
             exit();
         }
         else {
-            // save file to img/uploads
+            // save file to img
+            //only using the jpg extension
             move_uploaded_file($tmp_name, 'img/logo.jpg');
         }
         

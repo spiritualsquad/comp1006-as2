@@ -30,8 +30,8 @@ if ($validInput == true) {
     $sql = "INSERT INTO pageInformation (pageName, content) 
     VALUES (:pageName, :content)";
     $cmd = $db->prepare($sql);
-    $cmd->bindParam(':pageName', $pageName, PDO::PARAM_STR, 255);
-    $cmd->bindParam(':content', $content, PDO::PARAM_STR, 255);
+    $cmd->bindParam(':pageName', $pageName, PDO::PARAM_STR, 50);
+    $cmd->bindParam(':content', $content, PDO::PARAM_STR, 500);
     $cmd->execute();
 
     // disconnect
@@ -44,6 +44,6 @@ if ($validInput == true) {
     
 } 
 ?>
-</main>
+
 </body>
 </html>

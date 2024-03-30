@@ -57,6 +57,6 @@ try{
     exit();
 }
 ?>
-</main>
+
 </body>
 </html>

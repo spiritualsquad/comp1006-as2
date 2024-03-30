@@ -4,7 +4,7 @@ $title = 'Saving Show Updates...';
 include('adminShared/header.php');
 
 // capture form inputs into vars
-$pageId = $_POST['pageId'];  // id value from hidden input on form
+$pageId = $_POST['pageId'];  
 $pageName = $_POST['pageName'];
 $content = $_POST['content'];
 
@@ -17,7 +17,7 @@ if (empty($pageId)) {
 }
 
 if (empty($content)){
-    echo 'Release Year is required<br />';
+    echo 'Content is required<br />';
     $validInput = false;
 }
 
@@ -25,7 +25,8 @@ if (empty($content)){
 
 
 if ($validInput == true) {
-    // connect to db using the PDO (PHP Data Objects Library)
+    try{
+    // connect to db 
     include('shared/db.php');
 
     // set up SQL UPDATE command
@@ -37,8 +38,8 @@ if ($validInput == true) {
     $cmd = $db->prepare($sql);
 
     // map each input to a column in the shows table
-    $cmd->bindParam(':pageName', $pageName, PDO::PARAM_STR, 255);
-    $cmd->bindParam(':content', $content, PDO::PARAM_STR,255);
+    $cmd->bindParam(':pageName', $pageName, PDO::PARAM_STR, 50);
+    $cmd->bindParam(':content', $content, PDO::PARAM_STR,500);
     
     $cmd->bindParam(':pageId', $pageId, PDO::PARAM_INT);
 
@@ -48,8 +49,12 @@ if ($validInput == true) {
     // disconnect
     $db = null;
 
-    // show msg to user
+    
     header('location:pages.php');
+    }catch(Exception $err){
+        header('location:error.php');
+        exit();
+    }
 }
 ?>
 </main>

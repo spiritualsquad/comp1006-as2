@@ -51,6 +51,6 @@ if (is_numeric($pageId)) {
     <input type="hidden" name="pageId" id="pageId" value="<?php echo $pageId; ?>" />
     <button>Submit</button>
 </form>
-</main>
+
 </body>
 </html>
