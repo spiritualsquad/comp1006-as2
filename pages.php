@@ -2,6 +2,7 @@
 $title = 'Pages';
 include('shared/auth.php');
 include('adminShared/header.php');
+echo '<section>';
 try{
     // connect
     include('shared/db.php');
@@ -15,8 +16,8 @@ try{
     $pages = $cmd->fetchAll();
 
     // create table
-    echo '<h1>Pages</h1>';
-    echo'<h3><a href="addPage.php">Add Page</a></h3>';
+    echo '<h2>Pages</h2>';
+    echo'<a href="addPage.php"><h5>Add Page</h5></a>';
     echo '<table><thead>
             <th>Page Name</th>
             <th>Edit</th>
@@ -57,6 +58,6 @@ try{
     exit();
 }
 ?>
-
+</section>
 </body>
 </html>

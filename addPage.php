@@ -4,6 +4,7 @@ include('shared/auth.php');
 $title = 'Add Page';
 include('adminShared/header.php'); ?>
 <!-- lets the admin add page -->
+<section>
 <h2>Add a New Page</h2>
 <form method="post" action="insert-page.php">
     <fieldset>
@@ -15,6 +16,7 @@ include('adminShared/header.php'); ?>
         <textarea name="content" id="content" required></textarea>
     </fieldset>
    <button>Submit</button>
+</section>
 </form>
 </body>
 </html>

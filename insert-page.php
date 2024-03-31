@@ -2,6 +2,7 @@
 include('shared/auth.php');
 $title = 'Saving New Show...';
 include('adminShared/header.php');
+echo'<section>';
 // capture form inputs into vars
 $pageName = $_POST['pageName'];
 
@@ -44,6 +45,6 @@ if ($validInput == true) {
     
 } 
 ?>
-
+</section>
 </body>
 </html>

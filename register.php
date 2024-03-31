@@ -2,7 +2,7 @@
     $title = 'Register';
     require('shared/header.php');
 ?>
-
+<section>
 <h2>User Registration</h2>
     <h5>Passwords must be a minimum of 8 characters,including 1 digit, 1 upper-case letter, and 1 lower-case letter.</h5>
 <?php
@@ -51,6 +51,6 @@
       }
     </script>
 
-
+</section>
 </body>
 </html>

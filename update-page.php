@@ -2,7 +2,7 @@
 include('shared/auth.php');
 $title = 'Saving Show Updates...';
 include('adminShared/header.php');
-
+echo '<section>';
 // capture form inputs into vars
 $pageId = $_POST['pageId'];  
 $pageName = $_POST['pageName'];
@@ -57,6 +57,7 @@ if ($validInput == true) {
     }
 }
 ?>
+</section>
 </main>
 </body>
 </html>

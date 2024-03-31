@@ -3,6 +3,7 @@ $title = 'Pages';
 //include password protection
 include('shared/auth.php');
 include('adminShared/header.php');
+echo '<section>';
 try{
     // connect
     include('shared/db.php');
@@ -16,7 +17,7 @@ try{
     $users = $cmd->fetchAll();
 
     // create table
-    echo '<h1>Administrators</h1>';
+    echo '<h2>Administrators</h2>';
 
     echo '<table><thead>
             <th>Email</th>
@@ -58,6 +59,6 @@ try{
     exit();
 }
 ?>
-
+</section>
 </body>
 </html>

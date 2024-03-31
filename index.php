@@ -1,4 +1,4 @@
-<?php 
+<section><?php 
     $title = 'Home';
     include('shared/header.php'); 
     try{
@@ -24,7 +24,7 @@
     exit();
 }
 ?>
-    
+</section>
 
 </body>
 </html>

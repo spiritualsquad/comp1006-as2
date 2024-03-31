@@ -1,9 +1,18 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #000000;
+    background-color: #493e69;
+    margin: 0;
+    padding: 0;
+  }
+  
 header{
     background: black;
     display: flex;
     align-items: center;
     justify-content:flex-start;
-    padding:1.5rem 7%;
+    padding:0.5rem 7%;
     border-bottom: orange;
     position: fixed;
     top:0; left: 0; right: 0;
@@ -19,7 +28,7 @@ header img{
 
 header .navbar a{
     margin:0 2rem;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color:#fff;
 }
 
@@ -27,4 +36,134 @@ header .navbar a:hover{
     color: blue;
     border-bottom: .1rem solid var(--main-color);
     padding-bottom: .5rem; 
+}
+#passwordError{
+    color:red;
+}
+section{
+    padding: 8rem 7%;    
+}
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #000000;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #a4a4a4;
+  }
+  h2 {
+    text-align: center;
+    color: #080014;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  h5 {
+    text-align: center;
+    color: #080014;
+    font-size: 1em;
+    margin-bottom: 15px;
+    text-decoration: none;
+  }
+  p{
+    text-align: center;
+    font-size: 1.6rem;
+    color: #060404;
+    padding: 1rem 0;
+    line-height: 1.8
+  }
+
+/* styles.css */
+
+/* Reset default list styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style for list items */
+li {
+    margin-bottom: 20px;
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    padding: 10px; /* Add padding */
+}
+
+
+li h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+/* Style for anchor links */
+li a {
+    text-decoration: none;
+    color: #03162b; /* Change link color as needed */
+}
+
+/* Style for paragraphs within list items */
+li p {
+    margin: 5px 0;
+    padding: 0;
+    font-size: 16px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Style for table header */
+thead th {
+    background-color: #0f2135;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Style for table cells */
+td {
+    padding: 10px;
+    border-bottom: 1px solid #000000;
+}
+
+/* Style for alternating row background */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Style for links within table cells */
+td a {
+    text-decoration: none;
+    color: #03162b;
+}
+
+/* Style for links within table cells on hover */
+td a:hover {
+    text-decoration: underline;
 }

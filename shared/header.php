@@ -1,4 +1,4 @@
-<!-- This site is common header for all fields-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

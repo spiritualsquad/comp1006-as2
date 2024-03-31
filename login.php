@@ -8,6 +8,7 @@ require 'shared/header.php';
     echo '<h4>INVALID LOGIN</h4>';
   }
   ?>
+  <section>
   <h5>Please enter your credentials.</h5>
   <form method="post" action="validateInput.php">
     <fieldset>
@@ -20,6 +21,6 @@ require 'shared/header.php';
     </fieldset>
     <button >Login</button>
   </form>
-
+  </section>
 </body>
 </html>

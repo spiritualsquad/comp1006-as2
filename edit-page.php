@@ -36,7 +36,7 @@ if (is_numeric($pageId)) {
 }
 
 ?>
-
+<section>
 <h2>Edit Page Details</h2>
 <form method="post" action="update-page.php">
     <fieldset>
@@ -51,6 +51,6 @@ if (is_numeric($pageId)) {
     <input type="hidden" name="pageId" id="pageId" value="<?php echo $pageId; ?>" />
     <button>Submit</button>
 </form>
-
+</section>
 </body>
 </html>
